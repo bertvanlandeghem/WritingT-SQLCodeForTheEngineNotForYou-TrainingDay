@@ -1,0 +1,14 @@
+USE StackOverflow
+GO
+
+/*
+	TURN ON ACTUAL PLAN, STATISTICS and LIVE QUERY STATISTICS
+
+	SET STATISTICS TIME, IO ON
+*/
+SELECT DISTINCT U.Id
+  FROM dbo.Posts P
+	INNER JOIN dbo.Users U
+	   ON P.OwnerUserId = U.Id
+	   OR P.LastEditorUserId = U.AccountId
+GO

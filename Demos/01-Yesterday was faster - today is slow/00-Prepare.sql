@@ -1,0 +1,4 @@
+ALTER DATABASE [StackOverflow] SET COMPATIBILITY_LEVEL = 160;
+GO
+
+-- Drop indexes
