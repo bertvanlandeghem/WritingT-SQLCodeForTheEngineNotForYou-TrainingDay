@@ -1,3 +1,6 @@
+USE [StackOverflow]
+GO
+
 /*
 	A real story!
 	New request: Add a new validation for a couple of new Scores
