@@ -4,7 +4,7 @@ theme: default
 class: 
     #- invert
 paginate: true
-footer: "Cláudio Silva 2024 ©️ | claudioessilva | 7th October, 2024"
+footer: "Cláudio Silva ©️ 2024 | claudioessilva | 7th October, 2024"
 style: |
   section.titleCenter h1 {
     position: absolute;
@@ -24,46 +24,67 @@ style: |
 
 ---
 
-# Before we go further - Setting expectations
+# Scope
 
-<!--
-    The idea is provide you with different perspectives of problems/solutions.
-    To show you how different settings influence different behaviors.
-    If you need to work with different instances you know that rarely they are exactly the same.
-    Even a product will be different depending on the way a client is using it
+The idea for today is for each scenario:
 
+* Find/understand the process (normally a query)
+* Analyze the performance
+* Rewrite T-SQL
 
-    My view of the things.
-    Based on real-life scenarios
-    Isn't the law.
--->
+# Out of scope
 
-* No silver bullets! 🤷🏽‍♀️
+We won't be talking about:
 
-* It's my approach. My experience. Based on real-life scenarios
-
-* There are other ways/tools to accomplish the same. Keep your mind open to learn different ways.
-
-* Not one size-fits-all
-  * There are too many variables influencing things.
-  * Some suggestions work in some cases in other may not work so well.
-
-* Go back home/work and test/experiment (non-prod only, please! 😅)
+* Columnstore
+* In-Memory
+* Others
 
 ---
 
 # Before we go further - Setting expectations
 
-* Some scenarios will look like too extreme - believe me, they aren't 😏
-    * "But of course the table will have a supportive index" - Think again.
-    * "But that way I don't have a seek" - What's best will absolutely depend on the results.
-    * "Who puts hundreds or even thousands of values within a `IN()` clause?" - I have news for you...
-* Maybe isn't yet the time for you where few milliseconds will make a difference. However, if you are aware of the things we will see and, in a near future you need it, it will be easier to approach it.
+<!--
+    1. Not one-size-fits-all! Lots of variables can change the behaviors (From Hardware to settings CTfP, MaxDop, MaxMemory, edition, and the list goes on)
+    
+    2. The idea is to provide you with different perspectives on problems/solutions.
+    To show you how different settings influence different behaviors.
+    If you need to work with different instances, you know that rarely are exactly the same.
+    Even a product will be different depending on the way a client is using it (think on the data distribution)
+
+    3. The tools I will be using aren't the only ones that exist out there. Maybe you can have monitor tools like, I also use them on some clients, they can be awesome! Leverage on them.
+
+    4. This doesn't end here. If you are in IT you should acknowledge that you have decided to study for the rest of your career, otherwise you will lose the train and sit on the tech-debt.
+    Spin a local instance, test, change, test again, repeat.
+-->
+
+* No silver bullets! 🤷🏽‍♀️ Not one size-fits-all
+  * There are too many variables influencing things.
+
+  * Some suggestions work in some cases. In others may not work so well.
+
+* It's my approach. My experience. Based on real-life scenarios.
+
+* There are other ways/tools to accomplish the same. Keep your mind open to learn different ways.
+
+* Go back home/work and test/experiment (non-prod only, please! 😅)
+
+---
+
+# Before we go further - Real-life experience
 
 <!--
-    Some examples we gonna see will show small but good enough improvements to understand the differences.
-    No one wants a query running for 10 minutes, right?
+  Maybe isn't yet the time for you where a few milliseconds will make a difference. However, i
+
+  Some examples we going to see will show small but good enough improvements to understand the differences.
+  No one wants a query running for 10 minutes, right?
 -->
+
+* These scenarios look too extreme - believe me, they aren't 😏
+  * "But of course the table will have a supportive index" - Think again.
+  * "Who puts hundreds or even thousands of values within a `IN()` clause?" - I have news for you...
+
+* If we are aware of what exists, in the near future, if you need it, it will be easier to approach it.
 
 ---
 
