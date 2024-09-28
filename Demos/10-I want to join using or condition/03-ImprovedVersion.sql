@@ -6,7 +6,7 @@ GO
 
 	SET STATISTICS TIME, IO ON
 */
--- We can re-write in the following manner
+-- We can rewrite in the following manner
 SELECT U.Id
 	FROM dbo.Posts P
 	INNER JOIN dbo.Users U

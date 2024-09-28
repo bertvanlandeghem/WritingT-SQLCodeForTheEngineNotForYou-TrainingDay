@@ -20,11 +20,11 @@ Then, to take a look on the current metrics related with the executions of this 
 
 ### A couple of limitations
 
-1.As of the time of this exercise, `Query Store` doesn't have a way to filter its data by a module name using the GUI.
+1. As of the time of this exercise, `Query Store` doesn't have a way to filter its data by a module name using the GUI.
 
 > Note: You can use the GUI to filter by a query text. Check my blog post: [Search for queries with Query Store GUI](https://claudioessilva.eu/2024/01/29/Search-for-queries-with-Query-Store-GUI/)).
 
-2.If you are running under SQL Server 2022, you have the [Parameter Sensitive Plan optimization](https://learn.microsoft.com/en-us/sql/relational-databases/performance/parameter-sensitive-plan-optimization) active and the query is eligible to benefit from it, you may lose this level of detail (as-in, you won't be abel to see from which SP the query belongs and therefore you won't be able to filter by it).
+2. If you are running under SQL Server 2022, you have the [Parameter Sensitive Plan optimization](https://learn.microsoft.com/en-us/sql/relational-databases/performance/parameter-sensitive-plan-optimization) active and the query is eligible to benefit from it, you may lose this level of detail (as-in, you won't be abel to see from which SP the query belongs and therefore you won't be able to filter by it).
 
 ### What can we use instead?
 

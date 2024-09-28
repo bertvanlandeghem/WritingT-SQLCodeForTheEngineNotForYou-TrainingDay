@@ -6,7 +6,7 @@ GO
 
 
 /*
-	Created by AzureAD\Cl├íudioSilva using dbatools Export-DbaScript for objects on localhost,2022 at 09/24/2024 21:31:27
+	Created by CláudioSilva using dbatools Export-DbaScript for objects on localhost,2022 at 09/24/2024 21:31:27
 	See https://dbatools.io/Export-DbaScript for more information
 */
 
@@ -29,9 +29,6 @@ SET QUERY_STORE (
 GO
 
 
-
 /*
-    ToDo:
-
-    - Compile all helper scripts
+    Make sure the query_antipattern_xe is running
 */

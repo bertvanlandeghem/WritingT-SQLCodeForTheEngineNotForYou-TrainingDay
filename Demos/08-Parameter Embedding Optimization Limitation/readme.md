@@ -24,7 +24,7 @@ With the addition of the variable to keep the value on a variable so we can use 
 
 ## Rewrite Suggestion
 
-There are a couple of ways to re-write this query for its needs:
+There are a couple of ways to rewrite this query for its needs:
 
 1 - You can insert the results into a [temporary table](.\04-ImprovementTempTable.sql) and select from it afterwards
 2 - Now that we analyzed the code, maybe that variable wasn't needed at all. We could write a [CASE statement](.\05-ImprovementWithCase.sql) to build the `Msg` column based on the improved version.
