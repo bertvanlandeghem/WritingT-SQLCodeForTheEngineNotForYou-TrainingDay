@@ -3,7 +3,7 @@
 ## Scenario
 
 This one has multiple iterations, bear with me.
-There was a (1) request to write a Stored Procedure that would accept a `@OwnerUserId` parameter and return the count of posts belonging to that user. In case the parameter was passed with `NULL` value it should return the total posts (all users).
+There was a (1) request to write a Stored Procedure that would accept a `@OwnerUserId` parameter and return the count of posts belonging to that user. In case the parameter was passed with `NULL` value it should return the total posts (all users).  
 Because this query had to run a lot (+50 times/second) the current performance was not enough and the DEV came up with an improvement (2).
 
 Some weeks later, a new change was requested and together with the value a new column named `Msg` should return `OK`/`NOK` depending if the value was bigger than 0 or equal to 0. A developer did the change (3) and, when going on tests, it was slower again!
