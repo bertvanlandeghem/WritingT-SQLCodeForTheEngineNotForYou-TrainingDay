@@ -17,6 +17,8 @@ CREATE TABLE ExcessiveDataTypesAndSizes
 )
 GO
 
+UPDATE STATISTICS ExcessiveDataTypesAndSizes WITH FULLSCAN
+
 /*
 	On average, each record will have 8 + 72 + 8 = 88 bytes ?? (just for the values)
 	UUID will save an NEWID(), which is a GUID, that contains 36 chars and as unicode field that is 72 bytes
