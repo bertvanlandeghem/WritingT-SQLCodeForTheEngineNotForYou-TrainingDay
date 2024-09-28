@@ -6,6 +6,8 @@ GO
 
 	SET STATISTICS TIME, IO OFF
 */
+DROP TABLE IF EXISTS ExcessiveDataTypesAndSizes
+GO
 
 CREATE TABLE ExcessiveDataTypesAndSizes
 (
