@@ -2,37 +2,20 @@ USE StackOverflow
 GO
 
 /*
-	TURN ON ACTUAL PLAN and STATISTICS
-
-	SET STATISTICS TIME, IO ON
+	Change the function so it can be inlinable
 */
-
--- Stored Procedure spNumberOfPosts
-CREATE OR ALTER PROC spNumberOfPosts
-	@OwnerUserId AS INT = NULL
+CREATE OR ALTER FUNCTION dbo.GiveMeTheDate 
+(
+	@datetime datetime
+)
+RETURNS datetime
 AS
-BEGIN
-	
-	SET NOCOUNT ON;
-
-	DECLARE @Value INT
-
-	SELECT @Value = COUNT(1)
-	  FROM dbo.Posts
-	 WHERE (
-				OwnerUserId = @OwnerUserId 
-				OR @OwnerUserId IS NULL
-			)
-	OPTION (RECOMPILE)
-
-	IF (@Value > 0)
-		SELECT @Value AS NumberOfPosts, 'Ok' AS Msg
-	ELSE
-		SELECT @Value AS NumberOfPosts, 'NOk' AS Msg
-
+BEGIN	
+	RETURN @datetime
 END
 GO
 
--- Now it's an Index Seek, right?
-EXEC spNumberOfPosts @OwnerUserId = 50;
-GO
+
+/*
+	Now go back to the `01-Original.sql` and run it again
+*/

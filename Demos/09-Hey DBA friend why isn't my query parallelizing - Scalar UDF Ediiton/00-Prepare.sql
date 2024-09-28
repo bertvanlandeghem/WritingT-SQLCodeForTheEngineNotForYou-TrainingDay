@@ -13,7 +13,7 @@ RETURNS datetime
 AS
 BEGIN
 	/* Add something that prevent UDF to become inlinable */
-	DECLARE @internalDT datetime = GETDATE()  
+	DECLARE @internalDT datetime = GETDATE()
 
 	RETURN @datetime
 END

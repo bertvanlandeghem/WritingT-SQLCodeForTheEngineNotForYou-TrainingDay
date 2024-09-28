@@ -19,7 +19,7 @@ Isn't this neat?!
 > [!Note]
 > From the [documentation](https://learn.microsoft.com/en-us/sql/relational-databases/query-processing-architecture-guide?view=sql-server-ver15#parallel-query-processing):
 > The SQL Server Query Optimizer doesn't use a parallel execution plan for a query if any one of the following conditions is true:
-> - The serial execution plan is trivial, or does not exceed the cost threshold for parallelism setting.
+> - The serial execution plan is trivial or does not exceed the cost threshold for parallelism setting.
 > - The serial execution plan has a lower total estimated subtree cost than any parallel execution plan explored by the optimizer.
 > - The query contains scalar or relational operators that can't be run in parallel. Certain operators can cause a section of the query plan to run in serial mode, or the whole plan to run in serial mode.
 
@@ -32,15 +32,15 @@ With compatibility level 150 (that appears with SQL Server 2019), there is a new
 
 > This feature improves the performance of queries that invoke scalar UDFs in SQL Server (starting with SQL Server 2019 (15.x)).
 
-### Do we have a list or reasons?
+### Do we have a list of reasons?
 
 Sure we have on the documentation an interesting [list](https://learn.microsoft.com/en-us/sql/relational-databases/query-processing-architecture-guide?view=sql-server-ver15#parallel-query-processing) of values for the `NonParallelPlanReason`.
 
-### Back to the Inlineable Scalar UDF... What are the requirements? 
+### Back to the Inlineable Scalar UDF... What are the requirements?
 
 There are [dozens of requirements](https://learn.microsoft.com/en-us/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=sql-server-ver16#requirements).
 
-### And how to check if existing functions I may have are "Inlineable" or not?
+### And how to check if the existing functions that I have are "Inlineable" or not?
 
 Let's run the script [04-CheckModuleProperties.sql](04-CheckModuleProperties.sql) to find out more.
 
