@@ -2,6 +2,12 @@ USE StackOverflow
 GO
 
 /*
+	TURN ON ACTUAL PLAN and STATISTICS
+
+	SET STATISTICS TIME, IO ON
+*/
+
+/*
 	15 values
 */
 SELECT * 
@@ -166,6 +172,11 @@ SELECT *
  WHERE AccountId BETWEEN 1 AND 50
 GO
 
+/*
+	Drop the index
+*/
+DROP INDEX NCI_Users_AccountId ON dbo.Users
+GO
 
 /*
 	Crazy stuff?!
