@@ -1,3 +1,6 @@
+USE [StackOverflow]
+GO
+
 /*
     Turn off the sensitive plan optimization feature
 */
