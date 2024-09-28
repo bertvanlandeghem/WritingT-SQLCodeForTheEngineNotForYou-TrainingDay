@@ -19,7 +19,7 @@ There are some other ways to identify this `CONVERT_IMPLICIT` issues:
 
 ## Analysis
 
-By checking the execution plan of our [original](.\01-Original.sql) query, we can indeed find the "yellow triangle" and the `Warning` mentioning the `CONVERT_IMPLICIT()` usage.
+By checking the execution plan of our [original](01-Original.sql) query, we can indeed find the "yellow triangle" and the `Warning` mentioning the `CONVERT_IMPLICIT()` usage.
 However, the query is fast enough.
 
 This means that the data type of our variable isn't the same as the data type of our column that we are searching on.
@@ -34,8 +34,8 @@ In this case, the fix is as easy as remove the `n` from the `nvarchar` keyword o
 
 ## Comparing results
 
-Run the [side by side](.\03-SideBySide.sql) to compare not only the execution plan but also the time and IO statistics.
+Run the [side by side](03-SideBySide.sql) to compare not only the execution plan but also the time and IO statistics.
 
-For a better understanding how implicit conversion can hurt performance, let's run the [original](.\01-Original.sql) and the [improved version](.\02-ImprovedVersion.sql) using `SQLQueryStress` tool with 50 iterations and 8 threads to check if we see any difference.
+For a better understanding how implicit conversion can hurt performance, let's run the [original](01-Original.sql) and the [improved version](02-ImprovedVersion.sql) using `SQLQueryStress` tool with 50 iterations and 8 threads to check if we see any difference.
 
 Now, to fully understand the pain the user that did the initial comment was having after the increase of records on the table, let's rebuild our table with 1M records and, rerun our `SQLQueryStress` test.

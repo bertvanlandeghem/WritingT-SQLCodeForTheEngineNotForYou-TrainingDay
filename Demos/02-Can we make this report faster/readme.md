@@ -13,7 +13,7 @@ As this query runs multiple times and concurrently as multiple users have the ap
 
 The application owner talked with the DEV team and requested the name of the stored procedure - it's `dbo.MyReport` and we can see the original code [here](01-Original.sql).
 
-To mimic the problem, we need to run the [02-MimicTheProblem.sql](.\02-MimicTheProblem.sql) script.
+To mimic the problem, we need to run the [02-MimicTheProblem.sql](02-MimicTheProblem.sql) script.
 
 Then, to take a look on the current metrics related with the executions of this stored procedure we can rely on the data collected by `Query Store`.
 
@@ -29,7 +29,7 @@ Then, to take a look on the current metrics related with the executions of this 
 
 We can leverage on the existing system tables that contains the `Query Store` data.
 I like to use [sp_QuickieStore](https://github.com/erikdarlingdata/DarlingData/tree/main/sp_QuickieStore) as it allows us, out of the box, to use more granular filtering by using a bunch of different parameters and is way faster then the GUI.
-We can run the [03-FindSPInQueryStore.sql](.\03-FindSPInQueryStore.sql) script to find which queries query store have caught that belongs to our `dbo.MyReport` stored procedure.
+We can run the [03-FindSPInQueryStore.sql](03-FindSPInQueryStore.sql) script to find which queries query store have caught that belongs to our `dbo.MyReport` stored procedure.
 
 ## Analysis
 
@@ -44,7 +44,7 @@ This is a classic case of parameter sniffing.
 
 ## Rewrite Suggestion
 
-We can either use a `OPTION (RECOMPILE)` at the [query level](.\04-RecompileVersion.sql) or change the SP to use [Dynamic SQL](.\05-DynamicVersion.sql) by generating and execute the query with just the needed text based on the parameters passed.
+We can either use a `OPTION (RECOMPILE)` at the [query level](04-RecompileVersion.sql) or change the SP to use [Dynamic SQL](05-DynamicVersion.sql) by generating and execute the query with just the needed text based on the parameters passed.
 
 ### What could we do better?
 
@@ -53,7 +53,7 @@ By using dynamic SQL it will have more cached plans but that also gives you a bi
 
 ## Comparing results
 
-Run the [06-ComparingSideBySide.sql](.\06-ComparingSideBySide.sql) query and compare not only the IO metrics `CPU time` and `elapsed time` (on "Message" tab) but also the execution plans.
+Run the [06-ComparingSideBySide.sql](06-ComparingSideBySide.sql) query and compare not only the IO metrics `CPU time` and `elapsed time` (on "Message" tab) but also the execution plans.
 We can now see that for single user search we always have the `Index Seek` and when not filtering by user we get the `Index Scan`.
 
 Use `SQLQueryStress` tool call the newer versions a some dozens of times and check how the performance is more better and predictable.
@@ -61,5 +61,5 @@ Use `SQLQueryStress` tool call the newer versions a some dozens of times and che
 ## Bonus
 
 While using `sp_WhoIsActive` we can use some parameters to help us troubleshooting parameter sniffing.
-After run the fast query some dozen of times, use the script [07-Bonus.sql](.\07-Bonus.sql) to get the average execution time of the query while the current (slow) one is running.
+After run the fast query some dozen of times, use the script [07-Bonus.sql](07-Bonus.sql) to get the average execution time of the query while the current (slow) one is running.
 We can also check which parameters were passed to the current execution and compare them with the compiled values (by opening the execution plan)

@@ -13,10 +13,10 @@ The answers to these questions will vary a lot from user to user. 😅
 
 ## Identify
 
-In this demo let's assume the user can press a button that triggers the [query](.\02-ChangedVersion.sql).  
+In this demo let's assume the user can press a button that triggers the [query](02-ChangedVersion.sql).  
 This will be a good opportunity to use `sp_WhoIsActive` to check what's running.
 
-After catching the query that is running (remember that you can filter by database/login/hostname/program to narrow down the sessions), you find the [query](.\02-ChangedVersion.sql).  
+After catching the query that is running (remember that you can filter by database/login/hostname/program to narrow down the sessions), you find the [query](02-ChangedVersion.sql).  
 When you asked the developer if there was any change on this query - maybe a new release last night - the answer is: "Yes".
 
 ### How can we identify the older query?
@@ -24,7 +24,7 @@ When you asked the developer if there was any change on this query - maybe a new
 Here we are assuming that `Query Store` is turned on in "Read/Write" mode and therefore collecting what's running.  
 In this case we can leverage on `Query Store` to search by our query and try to find both versions.
 
-We could find at least 2 entries [yesterday's query](.\01-Original.sql) version and the [today's query](.\02-ChangedVersion.sql).
+We could find at least 2 entries [yesterday's query](01-Original.sql) version and the [today's query](02-ChangedVersion.sql).
 
 ## Analysis
 
@@ -47,8 +47,8 @@ This is what I call the "Copy & Paste problem". The developer "just" needs to co
 
 If we take a couple of minutes to analyze the query pattern, we may be able to rewrite the query in a better way and with that, make it run faster.
 
-Check the [improved version](.\03-ImprovedVersion.sql) with my suggestion for this scenario.
+Check the [improved version](03-ImprovedVersion.sql) with my suggestion for this scenario.
 
 ## Comparing results
 
-Run the [04-ComparingSideBySide.sql](.\04-ComparingSideBySide.sql) query and compare not only the `IO` metrics but also `CPU time` and `elapsed time` (on `Message` tab) but also the execution plans.
+Run the [04-ComparingSideBySide.sql](04-ComparingSideBySide.sql) query and compare not only the `IO` metrics but also `CPU time` and `elapsed time` (on `Message` tab) but also the execution plans.

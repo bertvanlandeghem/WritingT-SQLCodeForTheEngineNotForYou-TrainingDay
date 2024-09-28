@@ -7,7 +7,7 @@ There is anything we can do without change the T-SQL we are running?
 
 ## Identify
 
-The colleague share with us the [01-Original.sql](.\01-Original.sql) script.
+The colleague share with us the [01-Original.sql](01-Original.sql) script.
 When we run it, we check that indeed it's slow.
 
 ## Analysis
@@ -17,11 +17,11 @@ The query is pretty simple but makes use of a `Scalar UDF`. Historically that is
 ## Rewrite Suggestion
 
 Is there something we can change on the function that will make it run faster?
-When analyzing the column being passed, it seems that a big bunch of the records as `NULL` for the `ClosedDate` column. Because of that, it may be interesting to try to add to our function definition the `WITH RETURNS NULL ON NULL INPUT` as visible on the [02-CreateNewerVersion.sql](.\02-CreateNewerVersion.sql) script.
+When analyzing the column being passed, it seems that a big bunch of the records as `NULL` for the `ClosedDate` column. Because of that, it may be interesting to try to add to our function definition the `WITH RETURNS NULL ON NULL INPUT` as visible on the [02-CreateNewerVersion.sql](02-CreateNewerVersion.sql) script.
 
 ## Comparing results
 
-If we run both queries [side by side](.\03-SideBySide.sql) we can see a good improvement on the execution time.
+If we run both queries [side by side](03-SideBySide.sql) we can see a good improvement on the execution time.
 
 ### Were you expecting more?
 

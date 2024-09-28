@@ -25,11 +25,11 @@ Hopefully we will have a small number of results and we can easily find the one.
 
 I like to use [sp_QuickieStore](https://github.com/erikdarlingdata/DarlingData/tree/main/sp_QuickieStore) as it allows us, out of the box, to use more granular filtering by using a bunch of different parameters and is way faster then the GUI.
 This allow us not only to filter between two dates but also queries that took at least `15000` milliseconds (or 15 seconds).
-Example of a call can be found on [this script](.\02-FindTheQuery.sql).
+Example of a call can be found on [this script](02-FindTheQuery.sql).
 
 ## Analysis
 
-When we found the [query](.\01-Original.sql), `sp_QuickieStore` returns by default (hint: there is an `@expert_mode = 1`) lots of information.
+When we found the [query](01-Original.sql), `sp_QuickieStore` returns by default (hint: there is an `@expert_mode = 1`) lots of information.
 For our scenario, let's get the `query_id`, the `query_sql_text` text and the `query_plan`.
 
 ### query_plan
@@ -54,4 +54,4 @@ Our "Decision-Tree" friend suggests that the `OR` on the `JOIN` can be problemat
 
 ## Comparing results
 
-If we rewrite the query as the [improved version](.\03-ImprovedVersion.sql) we can see the query runs without any `Table Spool` and even if we a wider execution plan, in a quicker way.
+If we rewrite the query as the [improved version](03-ImprovedVersion.sql) we can see the query runs without any `Table Spool` and even if we a wider execution plan, in a quicker way.

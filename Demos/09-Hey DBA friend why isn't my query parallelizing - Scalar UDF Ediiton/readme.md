@@ -6,7 +6,7 @@ You have a query that you tested on your environment and that runs with good eno
 
 ## Identify
 
-The developer shared the [code of the scalar function that was deployed](.\00-Prepare.sql) as well as [the query](.\01-Original.sql) being called from the application.
+The developer shared the [code of the scalar function that was deployed](00-Prepare.sql) as well as [the query](01-Original.sql) being called from the application.
 By running this code we can indeed confirm that the execution plan doesn't go parallel. But why?
 
 If we check the properties of the execution plan by selecting the `SELECT` operator, we will find some interesting information.
@@ -42,7 +42,7 @@ There are [dozens of requirements](https://learn.microsoft.com/en-us/sql/relatio
 
 ### And how to check if existing functions I may have are "Inlineable" or not?
 
-Let's run the script [04-CheckModuleProperties.sql](.\04-CheckModuleProperties.sql) to find out more.
+Let's run the script [04-CheckModuleProperties.sql](04-CheckModuleProperties.sql) to find out more.
 
 ## Rewrite Suggestion
 

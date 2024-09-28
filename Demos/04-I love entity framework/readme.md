@@ -22,10 +22,10 @@ For more information read the Microsoft Learn [entry about the IN clause](https:
 
 ## Analysis
 
-By checking the execution plan of our [original](.\01-Original.sql) query, we can see that we have a `Constant Scan` operator or, sometimes, we may get a `Filter` operator. 
+By checking the execution plan of our [original](01-Original.sql) query, we can see that we have a `Constant Scan` operator or, sometimes, we may get a `Filter` operator. 
 When checking both execution and CPU time, it's just a couple of milliseconds.
 
-Let's take a [deeper look](.\02-AnalyzeInMoreDetail.sql) on the `IN()` clause and how more or less values can impact the performance.
+Let's take a [deeper look](02-AnalyzeInMoreDetail.sql) on the `IN()` clause and how more or less values can impact the performance.
 
 ## Rewrite Suggestion
 
@@ -37,13 +37,13 @@ Let's follow the path and then come back here.
 ### What could we do better?
 
 The suggestion is to replace the CTE by a temporary table so we only hit the `Posts` table once.
-Let's check how the [improved version](.\03-ImprovedVersion.sql) performs.
+Let's check how the [improved version](03-ImprovedVersion.sql) performs.
 
 ## Comparing results
 
-Let's run the [original](.\01-Original.sql) and the [improved version](.\03-ImprovedVersion.sql) using `SQLQueryStress` tool with 50 iterations and 8 threads to check if we see any difference.
+Let's run the [original](01-Original.sql) and the [improved version](03-ImprovedVersion.sql) using `SQLQueryStress` tool with 50 iterations and 8 threads to check if we see any difference.
 
 ## Bonus
 
 There is another example of a query (anti) pattern that can be solved in the same way.
-Let's take a look on the [04-LongCombinationsOfAndOr.sql](.\04-LongCombinationsOfAndOr.sql) script to understand the difference of performance between hundreds of `AND`/`OR` logical operators or the usage of a temp table.
+Let's take a look on the [04-LongCombinationsOfAndOr.sql](04-LongCombinationsOfAndOr.sql) script to understand the difference of performance between hundreds of `AND`/`OR` logical operators or the usage of a temp table.

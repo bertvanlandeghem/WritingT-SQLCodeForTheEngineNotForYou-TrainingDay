@@ -7,7 +7,7 @@ The DEV team did the changes and implemented in production, however, this query 
 
 ## Identify
 
-The DEV team shared the [before](.\01-Original.sql) and the [after](.\02-NewerVersion.sql) versions of that query.
+The DEV team shared the [before](01-Original.sql) and the [after](02-NewerVersion.sql) versions of that query.
 
 When we run them it's clear the performance difference but also the execution plan.
 
@@ -33,6 +33,6 @@ Other workarounds are:
 
 ## Comparing results
 
-If we take a look on the [prepare](.\00-Prepare.sql) script, we can analyze the differences between the 3 tables we have seen on the "[more details](.\04-MoreDetails.sql)" script.
+If we take a look on the [prepare](00-Prepare.sql) script, we can analyze the differences between the 3 tables we have seen on the "[more details](04-MoreDetails.sql)" script.
 
-For a better understanding how memory grants can impact the performance of your system, let's run the [newer version](.\02-NewerVersion.sql) and a second run with the `BetterDataTypesAndSizes` table using `SQLQueryStress` tool with 5 iterations and 10 threads to check if we see any difference.
+For a better understanding how memory grants can impact the performance of your system, let's run the [newer version](02-NewerVersion.sql) and a second run with the `BetterDataTypesAndSizes` table using `SQLQueryStress` tool with 5 iterations and 10 threads to check if we see any difference.

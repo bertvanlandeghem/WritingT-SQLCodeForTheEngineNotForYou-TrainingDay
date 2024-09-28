@@ -10,8 +10,8 @@ Some weeks later, a new change was requested and together with the value a new c
 
 ## Identify
 
-The developer shared the [original (1)](.\01-Original.sql) as well as the [improved (2)](.\02-ImprovedWithRecompile.sql) version of the Stored Procedure.
-They also share the [version (3)](.\03-AddMsgColumn.sql) that brings the new `Msg` column.
+The developer shared the [original (1)](01-Original.sql) as well as the [improved (2)](02-ImprovedWithRecompile.sql) version of the Stored Procedure.
+They also share the [version (3)](03-AddMsgColumn.sql) that brings the new `Msg` column.
 
 ## Analysis
 
@@ -26,12 +26,12 @@ With the addition of the variable to keep the value on a variable so we can use 
 
 There are a couple of ways to rewrite this query for its needs:
 
-1 - You can insert the results into a [temporary table](.\04-ImprovementTempTable.sql) and select from it afterwards
-2 - Now that we analyzed the code, maybe that variable wasn't needed at all. We could write a [CASE statement](.\05-ImprovementWithCase.sql) to build the `Msg` column based on the improved version.
-3 - We were only using the _parameter embedding_ optimization because we added the `OPTION (RECOMPILE)` on the 2nd version. However, we could avoid cost of the recompilation (assuming the current execution plan is what we need, and we won't have parameter sniffing problems) if we use [dynamic SQL](.\06-ImprovementWithDynamicSQL.sql) to build the query without the `OR` condition. If performance to the millisecond counts for you, this is the way to go.
+1 - You can insert the results into a [temporary table](04-ImprovementTempTable.sql) and select from it afterwards
+2 - Now that we analyzed the code, maybe that variable wasn't needed at all. We could write a [CASE statement](05-ImprovementWithCase.sql) to build the `Msg` column based on the improved version.
+3 - We were only using the _parameter embedding_ optimization because we added the `OPTION (RECOMPILE)` on the 2nd version. However, we could avoid cost of the recompilation (assuming the current execution plan is what we need, and we won't have parameter sniffing problems) if we use [dynamic SQL](06-ImprovementWithDynamicSQL.sql) to build the query without the `OR` condition. If performance to the millisecond counts for you, this is the way to go.
 
 ## Comparing results
 
-We can run the [side by side](.\07-SideBySide.sql) so we can take a look and compare the execution plans.
+We can run the [side by side](07-SideBySide.sql) so we can take a look and compare the execution plans.
 
 For a better understanding how each version performs when called hundreds of times, let's compare the original latest version that didn't pass the tests with the other 3 example. Using `SQLQueryStress` tool let's configure with 50 iterations and 5 threads to check if we see any difference.
