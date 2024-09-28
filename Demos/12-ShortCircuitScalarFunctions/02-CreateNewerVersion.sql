@@ -1,20 +1,6 @@
 USE StackOverflow
 GO
 
-ALTER DATABASE [StackOverflow] SET COMPATIBILITY_LEVEL = 130;
-GO
-
-SET STATISTICS TIME, IO ON
-GO
-
-/*********************************
-	TURN EXECUTION PLAN ON!
-
-	SET STATISTICS TIME, IO ON
-*********************************/
-
-
-
 CREATE OR ALTER FUNCTION [dbo].[GetScoreByDate_Improved] 
 (
 	@datetime DATETIME
