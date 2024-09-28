@@ -2,17 +2,16 @@
 
 ## Scenario
 
-The application has a label showing the the amount of posts owned by a user.
-This values changed based on the filters being used. Because the report is dynamic, on different call we can pass more or less parameters making the query need to read more or less data.
+The application has a label showing the the amount of posts owned by a user.  
+This values changed based on the filters being used. Because the report is dynamic, on different call we can pass more or less parameters making the query need to read more or less data.  
 
-More than once the users complained of intermittent performance issues.
-They said that getting data without passing parameters seems to have an acceptable performance since it's reading a lot more data, but than when they filter by a specific `@UserId` they were expecting the query to be a bit faster.
-Sometimes, it's the other way around, filtering data for one user is blazing fast (only take some milliseconds) but then when they try to get data for every user it takes several seconds.
-As this query runs multiple times and concurrently as multiple users have the application open at the same time, the application owner would like to try to improve/stabilize its performance.
+More than once the users complained of intermittent performance issues. They said that getting data without passing parameters seems to have an acceptable performance since it's reading a lot more data, but than when they filter by a specific `@UserId` they were expecting the query to be a bit faster.  
+Sometimes, it's the other way around, filtering data for one user is blazing fast (only take some milliseconds) but then when they try to get data for every user it takes several seconds.  
+As this query runs multiple times and concurrently as multiple users have the application open at the same time, the application owner would like to try to improve/stabilize its performance.  
 
 ## Identify
 
-The application owner talked with the DEV team and requested the name of the stored procedure - it's `dbo.MyReport` and we can see the original code [here](.\01-Original.sql).
+The application owner talked with the DEV team and requested the name of the stored procedure - it's `dbo.MyReport` and we can see the original code [here](01-Original.sql).
 
 To mimic the problem, we need to run the [02-MimicTheProblem.sql](.\02-MimicTheProblem.sql) script.
 
