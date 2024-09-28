@@ -14,7 +14,8 @@ Check the property named `NonParallelPlanReason`. In this case, we will see the 
 Isn't this neat?!
 
 > [!Note]
-> Remember that the possibility of a plan go parallel is not exclusively linked to the CTfP (Cost Threshold for Parallelism) instance setting. As this example proves, there is more things to keep in mind.
+> Remember that the possibility of a plan go parallel is not exclusively linked to the CTfP (Cost Threshold for Parallelism) instance setting. As this example proves, there is more things to keep in mind.  
+
 
 > [!Information]
 > From the [documentation](https://learn.microsoft.com/en-us/sql/relational-databases/query-processing-architecture-guide?view=sql-server-ver15#parallel-query-processing):
