@@ -2,25 +2,26 @@
 
 ## Scenario
 
-While doing some developments, someone complains about the performance of a query.
-They say - "I was expecting better performance on this query...even more because this table is partitioned. I'm even using the partition column in the `WHERE` clause do filter data...".
-Until now, they didn't put much effort to understand why because they have a second table where they can't see this happening too which lead them to think "it was the expected".
+While doing some developments, someone complains about the performance of a query.  
+They say - "I was expecting better performance on this query...even more because this table is partitioned. I'm even using the partition column in the `WHERE` clause do filter data...".  
+Until now, they haven't put much effort into understanding why because they have a second table where they can't see this happening too which leads them to think "it was the expected".  
 However, with some performance decrease they need our help.
 
 ## Identify
 
 > [!Important]
-> Disclaimer: Partitioning isn't a performance feature! However, if you can leverage on it to make queries faster....why not? :-)
+> Disclaimer: 
+> Partitioning isn't a performance feature! However, if you can leverage on it to make queries faster... why not? :-)
 
-Normally you will find this by analyzing slow queries and their execution plans where you don't see `Partition Elimination` happening.
+Normally you will find this by analyzing slow queries and their execution plans where you don't see `Partition Elimination` happening.  
 Let's run our [original](01-Original.sql) query and confirm that more than one partition is being read by analyzing the `Actual Partition Count` property when we mouse-hover the `SELECT` operator.
 
 ## Analysis
 
-By checking the execution plan of our [original](01-Original.sql) query, we can indeed find the `Actual Partition Count` property showing `5`. But, if I'm using the partition column and making an `=` comparison why I'm touching 5 partitions instead of just 1?
+By checking the execution plan of our [original](01-Original.sql) query, we can indeed find the `Actual Partition Count` property showing `5`. But, if I'm using the partition column and making an `=` comparison why is the engine touching `5` partitions instead of just `1`?
 
 > [!Note]
-> In some scenarios, like the second query that uses the dates table, we can find the `CONVERT_IMPLICIT_()` being mentioned, which as we gonna see is a good hint. However, in this case doesn't have anything to do with the data types precedence.
+> In some scenarios, like the second query that uses the dates table, we can find the `CONVERT_IMPLICIT_()` being mentioned, which as we are going see is a good hint. However, in this case doesn't have anything to do with the data types precedence.
 
 ## Rewrite Suggestion
 

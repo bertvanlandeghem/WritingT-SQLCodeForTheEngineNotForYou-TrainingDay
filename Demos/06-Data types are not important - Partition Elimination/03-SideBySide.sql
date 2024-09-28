@@ -25,7 +25,7 @@ GO
 /*
   With dates
 */
-DECLARE @DT DATE = '2021-01-02'
+DECLARE @DT DATETIME2(7) = '2021-01-02'
 SELECT EventDT 
   FROM TabPartitionEliminationDates
  WHERE EventDT >= @DT
