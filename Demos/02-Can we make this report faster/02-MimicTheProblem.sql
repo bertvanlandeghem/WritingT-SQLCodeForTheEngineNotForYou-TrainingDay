@@ -1,3 +1,6 @@
+USE [StackOverflow]
+GO
+
 /*
 	1st example:
 		1st run: 3 parameters are NULL

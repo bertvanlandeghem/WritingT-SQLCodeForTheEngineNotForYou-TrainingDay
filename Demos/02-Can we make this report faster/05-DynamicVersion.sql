@@ -9,7 +9,6 @@ CREATE OR ALTER PROC dbo.MyReport_Dynamic
 	  @StartDate	datetime
 	, @EndDate		datetime
 	, @UserId		int
-	, @CommentCount int
 )
 AS
 	BEGIN
@@ -18,8 +17,7 @@ AS
 
 		SET @ParamDefinition = '@StartDate datetime,
 								@EndDate datetime,
-								@UserId int,
-								@CommentCount int'
+								@UserId int'
 
 		SET @Sql = 'SELECT OwnerUserId, COUNT(1) AS NumberOfPosts
 					  FROM dbo.Posts
@@ -34,16 +32,12 @@ AS
 		IF @UserId IS NOT NULL
 			SET @sql += ' AND OwnerUserId = @UserId'
 
-		IF @CommentCount IS NOT NULL
-			SET @sql += ' AND CommentCount >= @CommentCount'
-
 		SET @Sql += ' GROUP BY OwnerUserId'
 
 		EXEC sp_executesql @Sql,
 							@ParamDefinition,
 							@StartDate,
 							@EndDate,
-							@UserId,
-							@CommentCount
+							@UserId
 	END
 GO
