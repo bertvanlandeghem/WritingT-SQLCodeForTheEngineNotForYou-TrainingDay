@@ -28,6 +28,9 @@ SELECT Id
 GO 2
 
 
+/*
+	Wait 15 seconds and cancel
+*/
 SELECT DISTINCT U.Id
   FROM dbo.Posts P
 	INNER JOIN dbo.Users U
