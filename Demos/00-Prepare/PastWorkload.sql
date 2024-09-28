@@ -25,3 +25,12 @@ SELECT Id
 						 AND P2.ViewCount = 10
 					 )
         )
+GO 2
+
+
+SELECT DISTINCT U.Id
+  FROM dbo.Posts P
+	INNER JOIN dbo.Users U
+	   ON P.OwnerUserId = U.Id
+	   OR P.LastEditorUserId = U.AccountId
+GO
