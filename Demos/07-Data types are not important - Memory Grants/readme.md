@@ -40,5 +40,5 @@ For a better understanding how memory grants can impact the performance of your 
 
 We can use `sp_WhoIsActive` while the test is running to find out that some sessions have a `wait_info` with the value `RESOURCE_SEMAPHORE`.
 
-> [!Information]
+> [!Tip]
 > Remember you can check more about this wait type on [SQL Server Wait Types Library](https://www.sqlskills.com/help/waits/RESOURCE_SEMAPHORE/).

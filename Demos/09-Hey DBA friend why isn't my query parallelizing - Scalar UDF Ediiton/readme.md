@@ -9,14 +9,14 @@ You have a query that you tested on your environment and that runs with good eno
 The developer shared the [code of the scalar function that was deployed](00-Prepare.sql) as well as [the query](01-Original.sql) being called from the application.  
 By running this code we can indeed confirm that the execution plan doesn't go parallel. But why?
 
-> [!Note]
+> [!Important]
 > Remember that the possibility of a plan go parallel is not exclusively linked to the `CTfP` (Cost Threshold for Parallelism) instance setting. As this example proves, there is more things to keep in mind.
 
 If we check the properties of the execution plan by selecting the `SELECT` operator, we will find some interesting information.  
 Check the property named `NonParallelPlanReason`. In this case, we will see the value `TSQLUserDefinedFunctionsNotParallelizable`.  
 Isn't this neat?!
 
-> [!Information]
+> [!Note]
 > From the [documentation](https://learn.microsoft.com/en-us/sql/relational-databases/query-processing-architecture-guide?view=sql-server-ver15#parallel-query-processing):
 > The SQL Server Query Optimizer doesn't use a parallel execution plan for a query if any one of the following conditions is true:
 > - The serial execution plan is trivial, or does not exceed the cost threshold for parallelism setting.

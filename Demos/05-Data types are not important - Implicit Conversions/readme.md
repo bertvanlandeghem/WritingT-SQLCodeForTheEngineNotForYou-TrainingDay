@@ -10,7 +10,7 @@ A developer has also heard that comment and went digging on the query.
 The developer found the query and comment with their colleagues (DEVs and DBAs) about a "yellow triangle" that appears on the execution plan.  
 It seems to be a `Warning` and mention something like `Type conversion in expression...` and shows some `CONVERT_IMPLICIT()`, that doesn't exist on the query text, being used.
 
-> [!NOTE]
+> [!Important]
 > There are some other ways to identify this `CONVERT_IMPLICIT` issues:
 > 
 > - Run a script that search for execution plans with this warning on the plan cache.
