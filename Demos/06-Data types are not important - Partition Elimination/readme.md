@@ -10,8 +10,7 @@ However, with some performance decrease they need our help.
 ## Identify
 
 > [!Important]
-> Disclaimer: 
-> Partitioning isn't a performance feature! However, if you can leverage on it to make queries faster... why not? :-)
+> Disclaimer - Partitioning isn't a performance feature! However, if you can leverage on it to make queries faster... why not? :-)
 
 Normally you will find this by analyzing slow queries and their execution plans where you don't see `Partition Elimination` happening.  
 Let's run our [original](01-Original.sql) query and confirm that more than one partition is being read by analyzing the `Actual Partition Count` property when we mouse-hover the `SELECT` operator.
