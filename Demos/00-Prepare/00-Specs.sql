@@ -1,12 +1,12 @@
 /*
-	What we gonna use:
+	What we are going to use:
 		- Stackoverflow DB with 10GB (you can get it together with one of the dbatools 
 		container instance 3 - SQL Server 2019)
-		- We don't have an image with SQL Server 2022 but what I did and you can do too 
-		is pull that one, download and restore the database from: 
+		- We don't have an image with SQL Server 2022 but what I did, and you can do too 
+		is pull that MS Docker image, and download and restore the database from: 
 			https://github.com/dataplat/docker/releases/download/1.0/StackOverflow2010.7z
 
-		- SSMS v20.x
+		- SSMS v19.x or higher
 		- In case you are using older (before v18) versions, know that v18 brought some 
 		goodies on the execution plans, like partial times for the operators, and v19 
 		may be a bit faster to load - but depends on your CPU)
@@ -33,7 +33,7 @@ OR name = 'max server memory (MB)'
 
 /*
 	Databases Compatibility level
-	We gonna play with this along the way too
+	We are going to play with this along the way too
 */
 SELECT @@SERVERNAME, [Name], [compatibility_level]
 FROM sys.databases
