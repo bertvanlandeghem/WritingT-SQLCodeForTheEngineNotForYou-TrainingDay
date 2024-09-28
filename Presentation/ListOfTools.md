@@ -14,7 +14,7 @@
 
 | Tool | Short Description | Author | Docs/Page/Download | 
 |------|------|:------:|------|
-| sp_WhoIsActive | _is a comprehensive activity monitoring stored procedure that works for all versions of SQL Server from 2005 through 2022 and Azure SQL DB._ | [Adam Machanic](https://github.com/amachanic) | [sp_WhoIsActive on GitHub](https://github.com/amachanic/sp_whoisactive) |
+| sp_WhoIsActive | _Is a comprehensive activity monitoring stored procedure that works for all versions of SQL Server from 2005 through 2022 and Azure SQL DB._ | [Adam Machanic](https://github.com/amachanic) | [sp_WhoIsActive on GitHub](https://github.com/amachanic/sp_whoisactive) |
 | sp_QuickieStore | _The fastest and most configurable way to navigate Query Store data_ | [Erik Darling](https://github.com/erikdarlingdata) | [sp_QuickieStore on GitHub](https://github.com/erikdarlingdata/DarlingData/tree/main/sp_QuickieStore) |
 | T-SQL Performance Tuning "Decision-Tree" | _Try to find out why a query is slow and get suggestions to fix it._ | [Cláudio Silva](https://github.com/ClaudioESSilva) | [T-SQL Performance Tuning "Decision-Tree" on GitHub](https://github.com/ClaudioESSilva/TSQLPerformanceTuning/tree/main) | 
 | SQLQueryStress | _SQL query stress simulator_ | [Adam Machanic (Hosted by Erik Ejlskov Jensen)](https://github.com/ErikEJ) | [SQLQueryStress on GitHub](https://github.com/ErikEJ/SqlQueryStress)|
