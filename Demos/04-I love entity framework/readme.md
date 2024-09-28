@@ -11,7 +11,7 @@ You remember that some applications used by your company use ORM (Object–relat
 
 When checking the Query Store using the `Top Resource Consuming Queries` by default it opens showing the `Duration` and the `Statistic: Total`. If our query runs a lot odds are that we will find it here.
 
-In extreme cases (the `IN()` needs to contain more than 10K values), if you are running on SQL Server 2022, you can use an [Extended Event](../XE/query_antipattern_xe.sql) to capture entries with value of `LargeIn` on the `antipattern_type` property.
+In extreme cases (the `IN()` needs to contain more than 10K values), if you are running on SQL Server 2022, you can use an [Extended Event](../00-Prepare/XE/query_antipattern_xe.sql) to capture entries with value of `LargeIn` on the `antipattern_type` property.
 
 In even more extreme cases you can get the errors:
 
