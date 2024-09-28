@@ -7,6 +7,14 @@ GO
 EXEC sp_QuickieStore
 	@database_name = 'StackOverflow',
 	@duration_ms = 15000
-    --@start_date = '',
-	--@end_date = '',
+GO
+
+/*
+	Based on the execution_type_desc
+*/
+EXEC sp_QuickieStore
+	@database_name = 'StackOverflow',
+	@duration_ms = 15000,
+    @start_date = '2024-09-28',
+	@execution_type_desc = 'Aborted'
 GO
