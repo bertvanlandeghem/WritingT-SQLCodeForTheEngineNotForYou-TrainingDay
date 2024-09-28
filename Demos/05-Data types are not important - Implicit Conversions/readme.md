@@ -26,16 +26,16 @@ This means that the data type of our variable isn't the same as the data type of
 By carefully analyzing both data types, we can see that our column in the table is of the data type `varchar` but when we are executing the query, the variable is being declared as `nvarchar`.  
 Due to the higher precedence of the `varchar` data type, SQL Server convert all values in the column to `nvarchar` so it can compare with the variable.
 
-To check the precedence order for data types in SQL server, check the Microsoft Learn docs [Data type precedence ](https://learn.microsoft.com/en-us/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-ver16).
+To check the precedence order for data types in SQL server, check the Microsoft Learn docs [Data type precedence](https://learn.microsoft.com/en-us/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-ver16).
 
 ## Rewrite Suggestion
 
-In this case, the fix is as easy as remove the `n` from the `nvarchar` keyword on the variable declaration.
+In this case, the fix is as easy as removing the `n` from the `nvarchar` keyword on the variable declaration.
 
 ## Comparing results
 
 Run the [side by side](03-SideBySide.sql) to compare not only the execution plan but also the time and IO statistics.
 
-For a better understanding how implicit conversion can hurt performance, let's run the [original](01-Original.sql) and the [improved version](02-ImprovedVersion.sql) using `SQLQueryStress` tool with 50 iterations and 8 threads to check if we see any difference.
+For a better understanding of how implicit conversion can hurt performance, let's run the [original](01-Original.sql) and the [improved version](02-ImprovedVersion.sql) using `SQLQueryStress` tool with 50 iterations and 8 threads to check if we see any difference.
 
 Now, to fully understand the pain the user that did the initial comment was having after the increase of records on the table, let's rebuild our table with 1M records and, rerun our `SQLQueryStress` test.
