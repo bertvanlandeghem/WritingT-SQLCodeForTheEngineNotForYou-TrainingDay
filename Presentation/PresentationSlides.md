@@ -28,7 +28,7 @@ style: |
 
 The idea for today is for each scenario:
 
-* Find/understand the process (normally a query)
+* Find/understand the query
 * Analyze the performance
 * Rewrite T-SQL
 
@@ -52,13 +52,13 @@ We won't be talking about:
     If you need to work with different instances, you know that rarely are exactly the same.
     Even a product will be different depending on the way a client is using it (think on the data distribution)
 
-    3. The tools I will be using aren't the only ones that exist out there. Maybe you can have monitor tools like, I also use them on some clients, they can be awesome! Leverage on them.
+    3. The tools I will be using aren't the only ones that exist out there. Maybe you can have monitor tools, I also use them on some clients, they can be awesome! Leverage on them.
 
     4. This doesn't end here. If you are in IT you should acknowledge that you have decided to study for the rest of your career, otherwise you will lose the train and sit on the tech-debt.
     Spin a local instance, test, change, test again, repeat.
 -->
 
-* No silver bullets! 🤷🏽‍♀️ Not one size-fits-all
+* No silver bullets! 🤷🏽‍♀️ Not one-size-fits-all
   * There are too many variables influencing things.
 
   * Some suggestions work in some cases. In others may not work so well.
@@ -78,13 +78,39 @@ We won't be talking about:
 
   Some examples we going to see will show small but good enough improvements to understand the differences.
   No one wants a query running for 10 minutes, right?
+
+  3rd: You pay per processing - it's easy to swipe the card and pay more.
+  On prem often people think the systems reached the tipping-point but also often it's still far away.
 -->
 
 * These scenarios look too extreme - believe me, they aren't 😏
   * "But of course the table will have a supportive index" - Think again.
   * "Who puts hundreds or even thousands of values within a `IN()` clause?" - I have news for you...
 
-* If we are aware of what exists, in the near future, if you need it, it will be easier to approach it.
+* If we are aware of what exists, in the near future, if you need it, hopefully it will be easier to approach it.
+
+  * Example: Before moving to cloud or increasing resources 💳💸
+
+---
+
+# Real-life experience - Some wins / success stories
+
+<!--
+  The impact of the changes can be measured in different manners. 
+  1. You may have a long running process
+  2. A very quick query but that needs to be quicker/use less CPU
+  3. An annoying CPU spike that make my system auto-scale
+
+  Other: Fix MaxDop - Half of the bill
+-->
+
+* Overnight ETL processing from +10h to less than 2h
+
+* New query - millions of executions on a day (+3K a minute) - +10% CPU. 
+  * Before - Average CPU: 9 ms
+  * After - Average CPU: 2 ms (CPU was back to normal)
+
+* Every 1 hour a spike on CPU
 
 ---
 
@@ -135,23 +161,23 @@ Open-Source Contributor
 
 # Agenda
 
-09:00 – 10:00: Introduction / Tools
+* 09:00 – 10:00: Introduction / Tools
 
-10:00 - 10:30: Let's see some demos?
+* 10:00 - 10:30: Let's see some demos?
 
-10:30 – 11:00: Break ☕🥤🍪
+* 10:30 – 11:00: Break ☕🥤🍪
 
-11:00 – 12:00: Continue demos
+* 11:00 – 12:00: Continue demos
 
-12:00 – 13:00: Lunch Break 🍽️🍹
+* 12:00 – 13:00: Lunch Break 🍽️🍹
 
-13:00 – 15:00: More demos!
+* 13:00 – 15:00: More demos!
 
-15:00 – 15:30: Break ☕🥤🍪
+* 15:00 – 15:30: Break ☕🥤🍪
 
-15:30 – 16:45: Do you want some more demos?
+* 15:30 – 16:45: Do you want some more demos?
 
-16:45 - 17:00: Wrap-up
+* 16:45 - 17:00: Wrap-up
 
 ---
 
