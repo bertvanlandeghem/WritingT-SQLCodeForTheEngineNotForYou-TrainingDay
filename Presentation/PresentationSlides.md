@@ -59,9 +59,32 @@ We won't be talking about:
 -->
 
 * No silver bullets! 🤷🏽‍♀️ Not one-size-fits-all
-  * There are too many variables influencing things.
-
   * Some suggestions work in some cases. In others may not work so well.
+  * There are too many variables influencing
+    * Hardware
+      * CPUs / Memory / Disks
+      * Physical or Virtual? On-Premises? Cloud maybe? Azure SQL DB? MI? RDS?
+    * SQL Server Edition & Instance configurations
+      * MaxMemory / CTfP / DoP
+    * Database 
+      * Compatibility Level / Scoped Configurations / 
+    * Workload type
+
+--- 
+
+# Before we go further - Setting expectations
+
+<!--
+    2. The idea is to provide you with different perspectives on problems/solutions.
+    To show you how different settings influence different behaviors.
+    If you need to work with different instances, you know that rarely are exactly the same.
+    Even a product will be different depending on the way a client is using it (think on the data distribution)
+
+    3. The tools I will be using aren't the only ones that exist out there. Maybe you can have monitor tools, I also use them on some clients, they can be awesome! Leverage on them.
+
+    4. This doesn't end here. If you are in IT you should acknowledge that you have decided to study for the rest of your career, otherwise you will lose the train and sit on the tech-debt.
+    Spin a local instance, test, change, test again, repeat.
+-->
 
 * It's my approach. My experience. Based on real-life scenarios.
 
@@ -106,7 +129,7 @@ We won't be talking about:
 
 * Overnight ETL processing from +10h to less than 2h
 
-* New query - millions of executions on a day (+3K a minute) - +10% CPU. 
+* New query - millions of executions on a day (+3K a minute) - +10% CPU.
   * Before - Average CPU: 9 ms
   * After - Average CPU: 2 ms (CPU was back to normal)
 
