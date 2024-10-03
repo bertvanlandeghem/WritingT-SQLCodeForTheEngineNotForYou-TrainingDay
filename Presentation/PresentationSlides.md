@@ -66,11 +66,11 @@ We won't be talking about:
       * Physical or Virtual? On-Premises? Cloud maybe? Azure SQL DB? MI? RDS?
     * SQL Server Edition & Instance configurations
       * MaxMemory / CTfP / DoP
-    * Database 
-      * Compatibility Level / Scoped Configurations / 
+    * Database
+      * Compatibility Level / Scoped Configurations
     * Workload type
 
---- 
+---
 
 # Before we go further - Setting expectations
 
@@ -201,6 +201,65 @@ Open-Source Contributor
 * 15:30 – 16:45: Do you want some more demos?
 
 * 16:45 - 17:00: Wrap-up
+
+---
+
+<style scoped>
+table {
+  font-size: 13px;
+}
+</style>
+
+# List of tools that we will be using
+
+## Microsoft Tools
+
+| Tool | Short Description | Docs |
+|------|-------------------|------|
+| SQL Server Management Studio | _SSMS provides tools to configure, monitor, and administer instances of SQL Server and databases. Use SSMS to query, design, and manage your databases and data warehouses, wherever they are - on your local computer or in the cloud._ | [Download SQL Server Management Studio (SSMS)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16) |
+| Query Store | _The Query Store simplifies performance troubleshooting by helping you quickly find performance differences caused by query plan changes._ | [Monitor performance by using the Query Store](https://learn.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) |
+| Execution Plans | _To be able to execute queries, the SQL Server Database Engine must analyze the statement to determine an efficient way to access the required data and process it._ | [Execution plan overview](https://learn.microsoft.com/en-us/sql/relational-databases/performance/execution-plans) |
+
+---
+
+<style scoped>
+table {
+  font-size: 13px;
+}
+</style>
+
+## Community Tools
+
+| Tool | Short Description | Author | Docs/Page/Download |
+|------|------|:------:|------|
+| sp_WhoIsActive | _Is a comprehensive activity monitoring stored procedure that works for all versions of SQL Server from 2005 through 2022 and Azure SQL DB._ | [Adam Machanic](https://github.com/amachanic) | [sp_WhoIsActive on GitHub](https://github.com/amachanic/sp_whoisactive) |
+| sp_QuickieStore | _The fastest and most configurable way to navigate Query Store data_ | [Erik Darling](https://github.com/erikdarlingdata) | [sp_QuickieStore on GitHub](https://github.com/erikdarlingdata/DarlingData/tree/main/sp_QuickieStore) |
+| T-SQL Performance Tuning "Decision-Tree" | _Try to find out why a query is slow and get suggestions to fix it._ | [Cláudio Silva](https://github.com/ClaudioESSilva) | [T-SQL Performance Tuning "Decision-Tree" on GitHub](https://github.com/ClaudioESSilva/TSQLPerformanceTuning/tree/main) | 
+| SQLQueryStress | _SQL query stress simulator_ | [Adam Machanic (Hosted by Erik Ejlskov Jensen)](https://github.com/ErikEJ) | [SQLQueryStress on GitHub](https://github.com/ErikEJ/SqlQueryStress)|
+| SQL Server Wait Types Library | _This site lists all wait types in SQL Server 2005 through SQL Server 2019/Azure SQL Database and gives detailed information about where they occur inside SQL Server._ | [Paul Randal](https://www.sqlskills.com/about/paul-s-randal/) | [SQL Server Wait Types Library](https://www.sqlskills.com/help/waits/)|
+| SQL Server Execution Plan Reference | _For every operator, you will find a description of what it does, how it does it, and how it interacts with other operators. You will also find all properties and their meaning._ | [Hugo Kornelis](https://sqlserverfast.com/contact/) | [SQL Server Execution Plan Reference site](https://sqlserverfast.com/epr/)|
+
+---
+
+# Demos
+
+* 01-Yesterday was faster - today is slow
+* 02-Can we make this report faster
+* 03-Look my query is so readable. CTEs are great
+* 04-I love entity framework
+* 05-Data types are not important - Implicit Conversions
+* 06-Data types are not important - Partition Elimination
+
+---
+
+# More demos
+
+* 07-Data types are not important - Memory Grants
+* 08-Parameter Embedding Optimization Limitation
+* 09-Hey DBA friend why isn't my query parallelizing - Scalar UDF Edition
+* 10-I want to join using "or" condition
+* 11-Relational and Informational
+* 12-Short circuit Scalar Functions
 
 ---
 
